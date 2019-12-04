@@ -7,6 +7,8 @@ into building reactive applications, highly scalable chat apps, games, and added
 
 https://github.com/cult-of-coders/redis-oplog
 
+## Astronomy
+
 The [Astronomy](https://atmospherejs.com/jagi/astronomy) package introduces the [Model Layer](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) into Meteor applications. It can also be named the Object Document Mapping system (ODM) or for people coming from relational database environments the Object-Relational Mapping system (ORM). Astronomy extends MongoDB documents with functionalities defined in a schema.
 
 ## Documentation
