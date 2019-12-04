@@ -1,6 +1,6 @@
 Package.describe({
   name: "pgiani:redis-astronomy",
-  version: "1.0.3",
+  version: "1.0.31",
   summary: "Model layer for Meteor",
   git: "https://github.com/pgiani/redis-astronomy",
 });
