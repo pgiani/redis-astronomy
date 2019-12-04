@@ -34,7 +34,7 @@ insecure@1.0.7
 inter-process-messaging@0.1.0
 jagi:astronomy@2.7.2
 jquery@1.11.10
-local-test:pgiani:redis-astronomy@1.0.0
+local-test:pgiani:redis-astronomy@1.0.1
 logging@1.1.20
 mdg:validation-error@0.5.1
 meteor@1.9.3
@@ -49,7 +49,7 @@ mongo-id@1.0.7
 npm-mongo@3.2.0
 observe-sequence@1.0.16
 ordered-dict@1.1.0
-pgiani:redis-astronomy@1.0.0
+pgiani:redis-astronomy@1.0.1
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
 practicalmeteor:mocha@2.4.5_2
