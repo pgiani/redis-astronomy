@@ -1,6 +1,11 @@
 # Redis-oplog version of meteor-astronomy
 
-<img src="http://jagi.github.io/meteor-astronomy/images/logo.png" />
+## RedisOplog
+
+A full re-implementation of the Meteor's MongoDB oplog tailing. This time, reactivity is controlled by the app, opening a new world
+into building reactive applications, highly scalable chat apps, games, and added reactivity for non-persistent data.
+
+https://github.com/cult-of-coders/redis-oplog
 
 The [Astronomy](https://atmospherejs.com/jagi/astronomy) package introduces the [Model Layer](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) into Meteor applications. It can also be named the Object Document Mapping system (ODM) or for people coming from relational database environments the Object-Relational Mapping system (ORM). Astronomy extends MongoDB documents with functionalities defined in a schema.
 
