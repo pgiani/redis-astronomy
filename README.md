@@ -1,6 +1,4 @@
-# Astronomy for Meteor
-
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jagi/meteor-astronomy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
+# Redis-oplog version of meteor-astronomy
 
 <img src="http://jagi.github.io/meteor-astronomy/images/logo.png" />
 
@@ -17,7 +15,8 @@ You can learn more about Astronomy by watching video tutorials that I'm creating
 ## Installation
 
 ```sh
-$ meteor add jagi:astronomy
+$ meteor add  pgiani:redis-astronomy
+
 ```
 
 ## Support Astronomy development
@@ -36,8 +35,8 @@ var post = Posts.findOne(id);
 post.createdAt = new Date();
 post.userId = Meteor.userId();
 // Manually convert values coming from the form.
-post.title = tmpl.find('input[name=title]').value;
-post.publishedAt = new Date(tmpl.find('input[name=publishedAt]').value);
+post.title = tmpl.find("input[name=title]").value;
+post.publishedAt = new Date(tmpl.find("input[name=publishedAt]").value);
 // Every time implement custom validation logic.
 if (post.title.length < 3) {
   // Implement an error messages system.
@@ -45,26 +44,30 @@ if (post.title.length < 3) {
 } else {
   // Detect what fields have changed and update only those.
   // Access collection directly.
-  Posts.update({
-    _id: post._id
-  }, {
-    $set: {
-      title: post.title,
-      publishedAt: post.publishedAt,
-      createdAt: post.updateAt
-    }
-  });
+  Posts.update(
+    {
+      _id: post._id,
+    },
+    {
+      $set: {
+        title: post.title,
+        publishedAt: post.publishedAt,
+        createdAt: post.updateAt,
+      },
+    },
+  );
 }
 ```
 
 With Astronomy and defined schema your code would look like follows:
+
 ```js
 // Notice that we call the "findOne" method
 // from the "Post" class not from the "Posts" collection.
 var post = Post.findOne(id);
 // Auto convert a string input value to a number.
-post.title = tmpl.find('input[name=title]').value;
-post.publishedAt = new Date(tmpl.find('input[name=publishedAt]').value);
+post.title = tmpl.find("input[name=title]").value;
+post.publishedAt = new Date(tmpl.find("input[name=publishedAt]").value);
 // Check if all fields are valid and update document
 // with only the fields that have changed.
 post.save();
@@ -76,26 +79,28 @@ For clarity, here is a sample schema that allows that. May seem to be a lot of
 code but have in mind that you write it only once.
 
 ```js
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from "meteor/jagi:astronomy";
 
-const Posts = new Mongo.Collection('posts');
+const Posts = new Mongo.Collection("posts");
 const Post = Class.create({
-  name: 'Post',
+  name: "Post",
   collection: Posts,
   fields: {
     title: {
       type: String,
-      validators: [{
-        type: 'minLength',
-        param: 3
-      }]
+      validators: [
+        {
+          type: "minLength",
+          param: 3,
+        },
+      ],
     },
     userId: String,
-    publishedAt: Date
+    publishedAt: Date,
   },
   behaviors: {
-    timestamp: {}
-  }
+    timestamp: {},
+  },
 });
 ```
 
@@ -106,6 +111,7 @@ const Post = Class.create({
 ## Contribution
 
 Bigs thanks for all the [contributions](https://github.com/jagi/meteor-astronomy/graphs/contributors) in form of commits and bug reports. Without you it would not be possible to improve Astronomy. Special thanks to:
+
 - [Faberle](https://github.com/Faberle) - for help with Meteor methods feature
 - [Ben305](https://github.com/Ben305) - for several PRs
 - [peterchoo](https://github.com/peterchoo) - for several PRs

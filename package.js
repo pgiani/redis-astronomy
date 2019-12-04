@@ -1,12 +1,12 @@
 Package.describe({
-  name: "jagi:astronomy",
+  name: "pgiani:redis-astronomy",
   version: "2.7.3",
   summary: "Model layer for Meteor",
-  git: "https://github.com/jagi/meteor-astronomy.git"
+  git: "https://github.com/pgiani/redis-astronomy",
 });
 
 Npm.depends({
-  lodash: "4.17.11"
+  lodash: "4.17.11",
 });
 
 Package.onUse(function(api) {
@@ -21,9 +21,9 @@ Package.onUse(function(api) {
       "check",
       "minimongo",
       "ejson",
-      "mdg:validation-error@0.5.1"
+      "mdg:validation-error@0.5.1",
     ],
-    ["client", "server"]
+    ["client", "server"],
   );
 
   api.mainModule("lib/main.js", ["client", "server"], { lazy: true });
@@ -41,9 +41,9 @@ Package.onTest(function(api) {
       "insecure",
       "mongo",
       "ejson",
-      "jagi:astronomy@2.5.8"
+      "jagi:astronomy@2.5.8",
     ],
-    ["client", "server"]
+    ["client", "server"],
   );
 
   api.addFiles("test/utils.js", ["client", "server"]);
@@ -53,15 +53,15 @@ Package.onTest(function(api) {
       "test/core/inherit.js",
       "test/core/extend.js",
       "test/core/state.js",
-      "test/core/ejson.js"
+      "test/core/ejson.js",
     ],
-    ["client", "server"]
+    ["client", "server"],
   );
   // Modules.
   // Modules - Behaviors.
   api.addFiles(
     ["test/modules/behaviors/create.js", "test/modules/behaviors/apply.js"],
-    ["client", "server"]
+    ["client", "server"],
   );
   // Modules - Validators.
   api.addFiles(
@@ -69,9 +69,9 @@ Package.onTest(function(api) {
       "test/modules/validators/create.js",
       "test/modules/validators/apply.js",
       "test/modules/validators/validate.js",
-      "test/modules/validators/validate_callback.js"
+      "test/modules/validators/validate_callback.js",
     ],
-    ["client", "server"]
+    ["client", "server"],
   );
   // Modules - Storage.
   api.addFiles(
@@ -87,18 +87,18 @@ Package.onTest(function(api) {
       "test/modules/storage/class_update.js",
       "test/modules/storage/class_remove.js",
       "test/modules/storage/reload.js",
-      "test/modules/storage/copy.js"
+      "test/modules/storage/copy.js",
     ],
-    ["client", "server"]
+    ["client", "server"],
   );
   // Modules - Events.
   api.addFiles(
     [
       "test/modules/events/order.js",
       "test/modules/events/propagation.js",
-      "test/modules/events/cancelable.js"
+      "test/modules/events/cancelable.js",
     ],
-    ["client", "server"]
+    ["client", "server"],
   );
   // Modules - Fields.
   api.addFiles(
@@ -111,16 +111,16 @@ Package.onTest(function(api) {
       "test/modules/fields/merge.js",
       "test/modules/fields/optional.js",
       "test/modules/fields/raw.js",
-      "test/modules/fields/set.js"
+      "test/modules/fields/set.js",
     ],
-    ["client", "server"]
+    ["client", "server"],
   );
   // Modules - Indexes.
   api.addFiles(
     [
       // 'test/indexes/indexes_definition.js'
     ],
-    "server"
+    "server",
   );
   // Modules - Methods.
   api.addFiles(["test/modules/helpers/definition.js"], ["client", "server"]);
